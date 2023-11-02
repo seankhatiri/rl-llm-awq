@@ -17,6 +17,12 @@ The main quantization method they used is a zero-based Round to Nearest (RTN).
 
 Given such apprach, one can formulate the first task of finding the salient weights as a binary classififcation as each weight should be considered as salient or not. In AWQ the autors consider that to find salient weights we should consider activation distribution since weight channels corresponding to larger activation magnitudes are more salient since they process more important features.
 
+Note: Mathematically we can formulate the quantization task as: 
+<div align="center">
+    <img src="figures/quant_task.png" alt="GPTQ" width="400"/>
+</div>
+Where N is the number of bit we want to consider during quantization (i.e., 3 for INT3 and 16 for FP16)
+
 ### Related Works:
 
 Given the post-Training Quantization (PTQ) methods, we should consider the OBQ and the efficient upgrade of it GPTQ. So basically the OBQ main idea is:
