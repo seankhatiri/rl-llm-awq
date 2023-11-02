@@ -23,6 +23,6 @@ Given the post-Training Quantization (PTQ) methods, we should consider the OBQ a
 - Given the weight matrix W, given each row, we can first quantize the first weight (i.e., first column), then calculate the quantization error which is | Wx - W'x|. Here W' is the new weights with one quuantized weight and other the same as before. Then, we reconstruct the remaining not-quantized weights in the row to minimize the overall quantization error given the new first weight quantization. Then we repeate this psudo code for the remaining weights in a row until we hit the last weight. Since in this setup we can consider each row separatly, it's clear the parallisim on GPU would be beneficiary.
 - Give the wight-by-weight quantization besides reconstruction of remaining weights to minimize the quantization error, authours in GPTQ came up with this idea to consider each column instead of each wight. Here, the input to each column will be the same as X (a calibration dataset will be fed to the network as X) and the order in which the quantization will be calculated remain the same for different rows unlike the OBQ approach. Besides, they provide some optimization to run this psudo approach on GPU efficiently.
 
-<center>
-<img src="figures/GPTQ.png" alt="GPTQ" width="300"/>
-</center>
+<div align="center">
+    <img src="figures/GPTQ.png" alt="GPTQ" width="300"/>
+</div>
